@@ -1,3 +1,6 @@
+from translations import get_translation
+
+
 class FixedConsume:
     # custom fees every month, edit by yourself
     c_house_fee_monthly = 1000
@@ -24,7 +27,8 @@ class FixedConsume:
     base_year = 0
     target_year = 0
 
-    def __init__(self, base_year, target_year, inflate_rate, birth_year, retirement_age):
+    def __init__(self, base_year, target_year, inflate_rate, birth_year, retirement_age,language):
+        self.language = language
         self.base_year = base_year
         self.inflation_rate = inflate_rate
         self.birth_year = birth_year
@@ -60,5 +64,12 @@ class FixedConsume:
 
     def get_no_str(self):
         i = self.target_year - self.base_year
-        return f"No.{ i + 1}|{self.base_year + i},age:{self.c_age},monthly_insurance_cost={(self.c_total_consume_yearly / 12):.2f},total_consume={self.c_total_consume_yearly:.2f},yearly_insurance_cost={self.c_insurance_fee_yearly:.2f}"
-
+        message_template = get_translation('yearly_consumption', self.language)
+        return message_template.format(
+            no=i + 1,
+            year=self.base_year + i,
+            age=self.c_age,
+            monthly_cost=self.c_total_consume_yearly / 12,
+            total_cost=self.c_total_consume_yearly,
+            insurance_cost=self.c_insurance_fee_yearly
+        )

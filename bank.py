@@ -1,24 +1,31 @@
+from translations import get_translation
+
+
 class Bank:
     balance = 0
     bank_rate = 0.012
 
-    def __init__(self, rate, balance):
+    def __init__(self, rate, balance, language):
         self.bank_rate = rate
         self.balance = balance
+        self.language = language
 
     def deposit(self, amount):
         self.balance += amount
-        print(f"Deposited {amount:.2f} into account. New balance is {self.balance:.2f}")
+        message_template = get_translation('deposit_message', self.language)
+        print(message_template.format(amount=amount, balance=self.balance))
 
     def add_interest(self):
         interest = self.balance * self.bank_rate
         self.balance += interest
-        print(f"Added {interest:.2f} interest to account. New balance is {self.balance:.2f}")
+        message_template = get_translation('interest_message', self.language)
+        print(message_template.format(interest=interest, balance=self.balance))
 
     def withdraw(self, amount):
         if self.balance < amount:
             self.balance = -99
-            print("Insufficient balance")
+            print(get_translation('insufficient_balance', self.language))
         else:
             self.balance -= amount
-            print(f"Withdrew { amount:.2f} from account. New balance is {self.balance:.2f}")
+            message_template = get_translation('withdraw_message', self.language)
+            print(message_template.format(amount=amount, balance=self.balance))
