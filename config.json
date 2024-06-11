@@ -1,0 +1,35 @@
+{
+    "language": "zh",
+    "currency": "CNY",
+    "mark": "¥",
+    "bank_rate": 1.2,
+    "initial_balance": 50000000,
+    "base_year": 2024,
+    "years":0,
+    "target_year": 2084,
+    "inflate_rate": 4.48,
+    "birth_year": 1983,
+    "retirement_age": 65,
+    "cost": {
+        "monthly": {
+            "fixed": {
+                "house_fee" :1000,
+                "eng_water_fee" : 50,
+                "eng_electricity_fee" : 200,
+                "eng_air_fee": 50,
+                "eng_network_fee" : 200,
+                "phone_fee" : 200,
+                "insurance_fee" : 4000
+            },
+            "variable": {
+                "traffic_fee" : 800,
+                "food_fee" : 3000,
+                "shopping_fee": 3000,
+                "travelling_fee" : 5000,
+                "vip_fee" : 400
+            }
+        },
+        "annual": {
+        }
+    }
+}
