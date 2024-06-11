@@ -1,8 +1,15 @@
+# -*- coding: utf-8 -*-
+supported_languages = ['en', 'zh', 'ja']
 translations = {
     'start_message': {
         'en': "Life is easy, start!",
-        'zh': "生活,易如反掌！　开始吧！",
+        'zh': "人生,易如反掌！　开始吧！",
         'ja': "人生、チョロかった！　スタート！"
+    },
+    'end_message': {
+        'en': "Life is easy, to be continued!",
+        'zh': "人生,易如反掌！　继续前进！",
+        'ja': "人生、チョロかった！　続けろ！"
     },
     'life_over': {
         'en': "My life is over!",
@@ -30,11 +37,16 @@ translations = {
         'ja': "残高不足"
     },
     'yearly_consumption': {
-        'en': "No.{no}|{year}, age:{age}, monthly cost:{monthly_cost:.2f}, total cost:{total_cost:.2f}, "
+        'en': "age:{age}, monthly cost:{monthly_cost:.2f}, yearly total cost:{total_cost:.2f}, "
               "yearly insurance cost:{insurance_cost:.2f}",
-        'zh': "编号.{no}|{year}, 年龄:{age}, 每月费用:{monthly_cost:.2f}, 总消费:{total_cost:.2f}, 年保险费用:{insurance_cost:.2f}",
-        'ja': "番号.{no}|{year}, 年齢:{age}, 月額:{monthly_cost:.2f}, 総消費:{total_cost:.2f}, 年間保険料:{insurance_cost:.2f}"
+        'zh': "年龄:{age}, 每月费用:{monthly_cost:.2f}, 全年总消费:{total_cost:.2f}, 年保险费用:{insurance_cost:.2f}",
+        'ja': "年齢:{age}, 月額:{monthly_cost:.2f}, 年間総消費:{total_cost:.2f}, 年間保険料:{insurance_cost:.2f}"
     },
+    'unsupported_language':{
+        'en': "Unsupported language!",
+        'zh': "不支持的语言!",
+        'ja': "サポートされていない言語!"
+    }
 }
 
 

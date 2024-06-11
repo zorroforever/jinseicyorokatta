@@ -1,28 +1,34 @@
+import json
 import translations
-from bank import Bank
+from bank.bank import Bank
 from fixed_consume import FixedConsume
 
-
-
-
-
 if __name__ == '__main__':
-    # Language selection
-    language = input("Select language (en/zh/ja): ").strip()
+
+    # Read configuration from file
+    with open('config.json', 'r') as config_file:
+        config = json.load(config_file)
+    bank_rate = config['bank_rate']
+    initial_balance = config['initial_balance']
+    base_year = config['base_year']
+    if config['years'] > 0:
+        target_year = base_year + config['years']
+    else:
+        target_year = config['target_year']
+        config['target_year'] = target_year
+
+    language = config['language']
     print(translations.get_translation('start_message', language))
     # init bank account
-    my_bank = Bank(0.0012, 50000000,language)
-    base_year = 2024
-    target_year = 2084
-    inflate_rate = 4.48
-    birth_year = 1983
-    retirement_age = 65
-
+    my_bank = Bank(config)
+    no = 0
     for year in range(base_year, target_year):
+        no += 1
+        print("No.%d:%s%s" % (no,year,'==>'))
         # get interest of bank
         my_bank.add_interest()
         # calculate fixed consume this year
-        consume = FixedConsume(base_year, year, inflate_rate, birth_year, retirement_age,language)
+        consume = FixedConsume(config,base_year,year)
         consume.calculate_fixed_consume_yearly()
         # show the result of fixed consume this year
         print(consume.get_no_str())
@@ -31,4 +37,7 @@ if __name__ == '__main__':
         # if balance is -99, it means My life is over!
         if my_bank.balance == -99:
             print(translations.get_translation('life_over', language))
+            print( '<==')
             break
+        print('<== ')
+    print(translations.get_translation('end_message', language))
