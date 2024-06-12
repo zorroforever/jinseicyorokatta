@@ -3,12 +3,12 @@ supported_languages = ['en', 'zh', 'ja']
 translations = {
     'start_message': {
         'en': "Life is easy, start!",
-        'zh': "人生,易如反掌！　开始吧！",
+        'zh': "人生,易如翻掌！　开始吧！",
         'ja': "人生、チョロかった！　スタート！"
     },
     'end_message': {
         'en': "Life is easy, to be continued!",
-        'zh': "人生,易如反掌！　继续前进！",
+        'zh': "人生,易如翻掌！　继续前进！",
         'ja': "人生、チョロかった！　続けろ！"
     },
     'life_over': {
