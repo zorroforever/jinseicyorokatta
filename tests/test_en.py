@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-from output_collector import OutputCollector
+from util.output_collector import OutputCollector
 
 
 class TestLifeEn:

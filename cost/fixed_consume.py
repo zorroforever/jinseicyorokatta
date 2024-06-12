@@ -1,5 +1,5 @@
 from bank.money import Money
-from translations import get_translation
+from util.translations import get_translation
 
 
 class FixedConsume:
