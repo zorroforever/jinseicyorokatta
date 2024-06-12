@@ -1,0 +1,48 @@
+name: Python Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install pyinstaller
+
+    - name: Build executable
+      run: pyinstaller --onefile life.py
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: life-exe
+        path: dist/life.exe
+
+  release:
+    runs-on: windows-latest
+    needs: build
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: life-exe
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/life.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
