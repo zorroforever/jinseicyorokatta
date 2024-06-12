@@ -4,7 +4,7 @@
  <p align="center">簡単に人生の使うお金を計算し、１００歳になる。</p>
  <p align="center">
     <a href="https://github.com/zorroforever/jinseicyorokatta/actions">
-      <img alt="Tests Passing" src="https://github.com/zorroforever/jinseicyorokatta/docs/badge.svg" />
+      <img alt="Tests Passing" src="/docs/badge.svg" />
     </a>
     <a href="https://github.com/zorroforever/jinseicyorokatta/graphs/contributors">
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/zorroforever/jinseicyorokatta" />

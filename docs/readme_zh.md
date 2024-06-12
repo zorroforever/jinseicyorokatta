@@ -4,7 +4,7 @@
  <p align="center">轻松计算您一生的花费，甚至到 100 岁。</p>
  <p align="center">
     <a href="https://github.com/zorroforever/jinseicyorokatta/actions">
-      <img alt="Tests Passing" src="https://github.com/zorroforever/jinseicyorokatta/docs/badge.svg" />
+      <img alt="Tests Passing" src="/docs/badge.svg" />
     </a>
     <a href="https://github.com/zorroforever/jinseicyorokatta/graphs/contributors">
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/zorroforever/jinseicyorokatta" />

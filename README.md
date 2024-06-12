@@ -1,10 +1,10 @@
 <p align="center">
- <img width="100px" src="https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg" align="center" alt="jinseicyorokatta" />
+ <img width="100px" src="/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
  <h2 align="center">「人生、チョロかった！」</h2>
  <p align="center">簡単に人生の使うお金を計算し、１００歳になる。</p>
  <p align="center">
     <a href="https://github.com/zorroforever/jinseicyorokatta/actions">
-      <img alt="Tests Passing" src="https://github.com/zorroforever/jinseicyorokatta/docs/badge.svg" />
+      <img alt="Tests Passing" src="/docs/badge.svg" />
     </a>
     <a href="https://github.com/zorroforever/jinseicyorokatta/graphs/contributors">
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/zorroforever/jinseicyorokatta" />
