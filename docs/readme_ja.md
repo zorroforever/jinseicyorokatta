@@ -22,8 +22,6 @@
     <a href="/docs/readme_en.md">English </a>
     ·
     <a href="/docs/readme_zh.md">简体中文</a>
-    ·
-    <a href="/docs/readme_ja.md">日本語</a>
   </p>
  </p>
 

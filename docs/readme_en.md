@@ -1,7 +1,7 @@
 <p align="center">
  <img width="100px" src="/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
  <h2 align="center">「Life is easy！」</h2>
- <p align="center">Easily calculate the money you spend in your life and you will be 100 years old.</p>
+ <p align="center">Easily calculate the money you spend in your life,more than 100 years old.</p>
  <p align="center">
     <a href="https://github.com/zorroforever/jinseicyorokatta/actions">
       <img alt="Tests Passing" src="/docs/badge.svg" />
@@ -19,8 +19,6 @@
     <br />
   </p>
  <p align="center">
-    <a href="/docs/readme_en.md">English </a>
-    ·
     <a href="/docs/readme_zh.md">简体中文</a>
     ·
     <a href="/docs/readme_ja.md">日本語</a>
