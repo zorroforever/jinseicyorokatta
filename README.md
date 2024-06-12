@@ -63,7 +63,7 @@ monthly.fixedとmonthly.variableの設定は、
 設定を終わったら、以下のコマンドで実行します。
 
 ```
-python life.py
+python life.py path/to/config.json
 ```
 
 
