@@ -12,7 +12,7 @@ class TestLifeZH:
         try:
 
             result = subprocess.run(
-                ['python', life_script_path, 'config_zh.json'],
+                ['python', life_script_path, 'config_en.json'],
                 capture_output=True,
                 text=True,
                 encoding='utf-8'
@@ -24,7 +24,7 @@ class TestLifeZH:
             print("----- Output Start -----")
             print(output)
             print("----- Output End -----")
-            assert "继续前进" in output, "The output does not contain '继续前进' keyword."
+            assert "continued" in output, "The output does not contain 'continued' keyword."
 
         except Exception as e:
             print(f"An error occurred: {e}")
