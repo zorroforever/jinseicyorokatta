@@ -4,6 +4,7 @@ from bank.bank import Bank
 from fixed_consume import FixedConsume
 import argparse
 import sys
+
 from output_collector import OutputCollector
 
 
@@ -51,9 +52,9 @@ def main(config_path):
     sys.stdout = sys.__stdout__
     print(output_collector.get_contents())
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Run life.py with a specified config file.")
     parser.add_argument('config_path', type=str, help="Path to the configuration file.")
     args = parser.parse_args()
     main(args.config_path)
-
