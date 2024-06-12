@@ -34,15 +34,17 @@
 apt-get install python
 ```
 
-
 ## インストール
+
+
+
 
 config.jsonの設定
 
 ```
 {
-    "language": "zh", // 言語設定
-    "currency": "CNY", // 通貨設定
+    "language": "ja", // 言語設定
+    "currency": "JPN", // 通貨設定
     "mark": "¥", // 通貨記号設定
     "bank_rate": 1.2, // 銀行の利率設定
     "initial_balance": 50000000,   // 初期資金設定
