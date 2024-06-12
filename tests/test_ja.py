@@ -4,7 +4,7 @@ import os
 from output_collector import OutputCollector
 
 
-class TestLifeZH:
+class TestLifeJA:
     def test_run_life_with_config(self):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         life_script_path = os.path.join(script_dir, '..', 'life.py')
