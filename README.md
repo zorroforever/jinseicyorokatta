@@ -34,7 +34,8 @@
 apt-get install python
 ```
 
-### インストール
+
+## インストール
 
 config.jsonの設定
 
