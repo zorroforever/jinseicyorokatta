@@ -2,14 +2,19 @@ import json
 import translations
 from bank.bank import Bank
 from fixed_consume import FixedConsume
+import argparse
+import sys
+from output_collector import OutputCollector
 
-if __name__ == '__main__':
 
-    # Read configuration from file
-    with open('config.json', 'r') as config_file:
-        config = json.load(config_file)
-    bank_rate = config['bank_rate']
-    initial_balance = config['initial_balance']
+def load_config(config_path):
+    with open(config_path, 'r', encoding='utf-8') as file:
+        config = json.load(file)
+    return config
+
+
+def main(config_path):
+    config = load_config(config_path)
     base_year = config['base_year']
     if config['years'] > 0:
         target_year = base_year + config['years']
@@ -21,23 +26,34 @@ if __name__ == '__main__':
     print(translations.get_translation('start_message', language))
     # init bank account
     my_bank = Bank(config)
+    output_collector = OutputCollector()
+    sys.stdout = output_collector
     no = 0
     for year in range(base_year, target_year):
         no += 1
-        print("No.%d:%s%s" % (no,year,'==>'))
+        print("No.%d:%s%s" % (no, year, '==>'))
         # get interest of bank
         my_bank.add_interest()
         # calculate fixed consume this year
-        consume = FixedConsume(config,base_year,year)
+        consume = FixedConsume(config, base_year, year)
         consume.calculate_fixed_consume_yearly()
         # show the result of fixed consume this year
         print(consume.get_no_str())
         # withdraw the fixed consume from bank
         my_bank.withdraw(consume.c_total_consume_yearly)
         # if balance is -99, it means My life is over!
-        if my_bank.balance == -99:
+        if my_bank.balance is None:
             print(translations.get_translation('life_over', language))
-            print( '<==')
+            print('<==')
             break
         print('<== ')
     print(translations.get_translation('end_message', language))
+    sys.stdout = sys.__stdout__
+    print(output_collector.get_contents())
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Run life.py with a specified config file.")
+    parser.add_argument('config_path', type=str, help="Path to the configuration file.")
+    args = parser.parse_args()
+    main(args.config_path)
+

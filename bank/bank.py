@@ -4,7 +4,7 @@ from translations import get_translation
 
 
 class Bank:
-    balance = 0
+    balance = None
     bank_rate = 0.012
     language = 'en'
     currency = 'CNY'
@@ -15,22 +15,22 @@ class Bank:
         self.language = config['language']
         self.currency = config['currency']
 
-    def deposit(self, amount):
-        self.balance += amount
+    def deposit(self, pay_in):
+        self.balance += pay_in.amount
         message_template = get_translation('deposit_message', self.language)
-        print(message_template.format(amount=amount, balance=self.balance))
+        print(message_template.format(amount=pay_in, balance=self.balance))
 
     def add_interest(self):
-        interest = self.balance.amount * (self.bank_rate / 100)
-        self.balance.amount += interest
+        interest = Money(self.balance.amount * (self.bank_rate / 100), self.currency, self.balance.mark)
+        self.balance.amount += interest.amount
         message_template = get_translation('interest_message', self.language)
         print(message_template.format(interest=interest, balance=self.balance))
 
-    def withdraw(self, amount):
-        if self.balance.amount < amount:
-            self.balance = -99
+    def withdraw(self, pay_out):
+        if self.balance.amount < pay_out.amount:
+            self.balance = None
             print(get_translation('insufficient_balance', self.language))
         else:
-            self.balance.amount -= amount
+            self.balance.amount -= pay_out.amount
             message_template = get_translation('withdraw_message', self.language)
-            print(message_template.format(amount=amount, balance=self.balance))
+            print(message_template.format(amount=pay_out, balance=self.balance))
