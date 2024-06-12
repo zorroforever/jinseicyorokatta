@@ -1,11 +1,11 @@
 import json
-import translations
+from util import translations
 from bank.bank import Bank
-from fixed_consume import FixedConsume
+from cost.fixed_consume import FixedConsume
 import argparse
 import sys
 
-from output_collector import OutputCollector
+from util.output_collector import OutputCollector
 
 
 def load_config(config_path):
