@@ -38,9 +38,6 @@ apt-get install python
 
 ## Install
 
-
-
-
 setting the config.json
 
 ```

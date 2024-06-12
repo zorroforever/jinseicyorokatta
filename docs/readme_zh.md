@@ -38,9 +38,6 @@ apt-get install python
 
 ## インストール
 
-
-
-
 配置config.json
 
 ```
