@@ -47,7 +47,7 @@ jobs:
         name: life-exe
 
     - name: List files after download
-      run: ls -l
+      run: ls
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
