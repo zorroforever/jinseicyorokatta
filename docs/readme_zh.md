@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="https://github.com/zorroforever/jinseicyorokatta/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
+ <img width="100px" src="/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
  <h2 align="center">「人生、易如翻掌！」</h2>
  <p align="center">轻松计算您一生的花费，甚至到 100 岁。</p>
  <p align="center">

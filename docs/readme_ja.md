@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="https://github.com/zorroforever/jinseicyorokatta/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
+ <img width="100px" src="/docs/hand-right-outline.svg" align="center" alt="jinseicyorokatta" />
  <h2 align="center">「人生、チョロかった！」</h2>
  <p align="center">簡単に人生の使うお金を計算し、１００歳になる。</p>
  <p align="center">
