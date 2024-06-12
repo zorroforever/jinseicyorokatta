@@ -41,11 +41,11 @@ config.jsonの設定
 
 ```
 {
-    "language": "zh", // 言語設定
-    "currency": "CNY", // 通貨設定
+    "language": "ja", // 言語設定
+    "currency": "JPY", // 通貨設定
     "mark": "¥", // 通貨記号設定
-    "bank_rate": 1.2, // 銀行の利率設定
-    "initial_balance": 50000000,   // 初期資金設定
+    "bank_rate": 0.11, // 銀行の利率設定
+    "initial_balance": 500000000,   // 初期資金設定
     "base_year": 2024, // 基準年設定
     "years":0, // 何年目か設定
     "target_year": 2084, // 目標年設定
@@ -55,20 +55,20 @@ config.jsonの設定
     "cost": {
         "monthly": {
             "fixed": {
-                "house_fee" :1000,// 家賃   
-                "eng_water_fee" : 50, // 水道料金
-                "eng_electricity_fee" : 200, // 電気料金
-                "eng_gas_fee": 50,// ガス料金
-                "eng_network_fee" : 200, // 通信料金
-                "phone_fee" : 200, // 電話料金
-                "insurance_fee" : 4000 // 保険料金
+                "house_fee" :100000,// 家賃   
+                "eng_water_fee" : 500, // 水道料金
+                "eng_electricity_fee" : 2000, // 電気料金
+                "eng_gas_fee": 500,// ガス料金
+                "eng_network_fee" : 2000, // 通信料金
+                "phone_fee" : 2000, // 電話料金
+                "insurance_fee" : 40000 // 保険料金
             },
             "variable": {
-                "traffic_fee" : 800, // 交通費
-                "food_fee" : 3000, // 食費
-                "shopping_fee": 3000,// 買い物料金
-                "travelling_fee" : 5000,//   旅費
-                "vip_fee" : 400// 各vip会員料金
+                "traffic_fee" : 8000, // 交通費
+                "food_fee" : 30000, // 食費
+                "shopping_fee": 30000,// 買い物料金
+                "travelling_fee" : 50000,//   旅費
+                "vip_fee" : 4000// 各vip会員料金
             }
         },
         "annual": {
