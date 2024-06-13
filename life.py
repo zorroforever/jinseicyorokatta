@@ -27,8 +27,8 @@ def main(config_path):
     print(translations.get_translation('start_message', language))
     # init bank account
     my_bank = Bank(config)
-    output_collector = OutputCollector()
-    sys.stdout = output_collector
+    output_collector = OutputCollector(config['output_file_path'])
+
     no = 0
     for year in range(base_year, target_year):
         no += 1
@@ -46,13 +46,14 @@ def main(config_path):
         if my_bank.balance is None:
             print(translations.get_translation('life_over', language))
             print('<==')
-            sys.stdout = sys.__stdout__
-            print(output_collector.get_contents())
+            output_collector.restore_stdout()
+            output_collector.output_to_file()
             return
         print('<== ')
     print(translations.get_translation('end_message', language))
-    sys.stdout = sys.__stdout__
-    print(output_collector.get_contents())
+    output_collector.restore_stdout()
+    output_collector.output_to_file()
+
 
 
 if __name__ == '__main__':

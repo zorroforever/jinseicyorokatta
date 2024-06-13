@@ -67,6 +67,11 @@ translations = {
         "ja": "数値を Money で割ることはサポートされていません",
         "en": "Division of a number by Money is not supported"
     },
+    "output_file_error":{
+        "zh": "输出文件到 {0},  错误：{1}",
+        "ja": "出力ファイルを {0}, エラー：{1}",
+        "en": "Output file to {0}, error：{1}"
+    }
 }
 
 
