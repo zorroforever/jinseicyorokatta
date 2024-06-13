@@ -11,26 +11,26 @@ class Bank:
 
     def __init__(self, config):
         self.bank_rate = config['bank_rate']
-        self.balance = Money(config['initial_balance'],config['currency'],config["mark"])
+        self.balance = Money(config['initial_balance'], config['currency'], config["mark"])
         self.language = config['language']
         self.currency = config['currency']
 
     def deposit(self, pay_in):
-        self.balance += pay_in.amount
+        self.balance += pay_in
         message_template = get_translation('deposit_message', self.language)
         print(message_template.format(amount=pay_in, balance=self.balance))
 
     def add_interest(self):
-        interest = Money(self.balance.amount * (self.bank_rate / 100), self.currency, self.balance.mark)
-        self.balance.amount += interest.amount
+        interest = self.balance * (self.bank_rate / 100)
+        self.balance += interest
         message_template = get_translation('interest_message', self.language)
         print(message_template.format(interest=interest, balance=self.balance))
 
     def withdraw(self, pay_out):
-        if self.balance.amount < pay_out.amount:
+        if self.balance < pay_out:
             self.balance = None
             print(get_translation('insufficient_balance', self.language))
         else:
-            self.balance.amount -= pay_out.amount
+            self.balance -= pay_out
             message_template = get_translation('withdraw_message', self.language)
             print(message_template.format(amount=pay_out, balance=self.balance))

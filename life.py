@@ -46,7 +46,9 @@ def main(config_path):
         if my_bank.balance is None:
             print(translations.get_translation('life_over', language))
             print('<==')
-            break
+            sys.stdout = sys.__stdout__
+            print(output_collector.get_contents())
+            return
         print('<== ')
     print(translations.get_translation('end_message', language))
     sys.stdout = sys.__stdout__
