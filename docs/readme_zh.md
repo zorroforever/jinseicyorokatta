@@ -25,7 +25,7 @@
   </p>
  </p>
 
-## はじめに
+## 开始
 
 
 准备一个正常的 py3.10 环境。
@@ -34,7 +34,7 @@
 apt-get install python
 ```
 
-## インストール
+## 安装
 
 配置config.json
 
@@ -86,7 +86,11 @@ monthly.fixed和monthly.variable
 ```
 python life.py path/to/config.json
 ```
+如果是windows、运行以下命令。
 
+```
+.\life.exe "path/to/config.json"
+```
 
 ## 贡献
 

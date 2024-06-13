@@ -87,7 +87,11 @@ monthly.fixedとmonthly.variableの設定は、
 ```
 python life.py path/to/config.json
 ```
+windowsの場合は、以下のコマンドで実行します。
 
+```
+.\life.exe "path/to/config.json"
+```
 
 ## 貢献
 
