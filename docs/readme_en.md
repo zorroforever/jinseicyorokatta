@@ -86,7 +86,11 @@ When you are done with the settings, run the following command.
 ```
 python life.py path/to/config.json
 ```
+When you use windows, run the following command.
 
+```
+.\life.exe "path/to/config.json"
+```
 
 ## Contribution
 
