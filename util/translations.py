@@ -46,7 +46,27 @@ translations = {
         'en': "Unsupported language!",
         'zh': "不支持的语言!",
         'ja': "サポートされていない言語!"
-    }
+    },
+    "no_exchange_rate": {
+        "zh": "没有可用的汇率从 {0} 到 {1}",
+        "ja": "{0} から {1} への利用可能な為替レートがありません",
+        "en": "No exchange rate available for {0} to {1}"
+    },
+    "unsupported_type": {
+        "zh": "不支持的类型：{0}",
+        "ja": "サポートされていない型：{0}",
+        "en": "Unsupported type: {0}"
+    },
+    "division_by_zero": {
+        "zh": "不能除以零",
+        "ja": "ゼロで割ることはできません",
+        "en": "Cannot divide by zero"
+    },
+    "number_divided_by_money": {
+        "zh": "不支持用数字除以Money",
+        "ja": "数値を Money で割ることはサポートされていません",
+        "en": "Division of a number by Money is not supported"
+    },
 }
 
 
