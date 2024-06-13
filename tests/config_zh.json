@@ -10,6 +10,7 @@
     "inflate_rate": 4.48,
     "birth_year": 1983,
     "retirement_age": 65,
+    "output_file_path": "out.txt",
     "cost": {
         "monthly": {
             "fixed": {
