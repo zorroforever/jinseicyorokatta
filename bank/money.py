@@ -42,7 +42,7 @@ class Money:
         if rate is None:
             message = get_translation("no_exchange_rate",self.language).format(self.currency, target_currency)
             raise ValueError(message)
-        target_mark = {"CNY": "¥", "USD": "$", "EUR": "€"}.get(target_currency, "")
+        target_mark = {"CNY": "¥", "USD": "$", "JPY": "¥"}.get(target_currency, "")
         return Money(self.amount * rate, target_currency, target_mark)
 
     def __add__(self, other):
