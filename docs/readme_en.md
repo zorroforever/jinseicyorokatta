@@ -36,6 +36,38 @@ apt-get install python
 
 ## Install
 
+json file can be edited by web.
+run the following command.
+```
+python flask_app.py
+```
+and,open the following url in your browser.
+
+```
+http://localhost:5000/
+```
+<details>
+<summary>Web sit settings</summary>
+run the following command.
+make the .po file.
+
+> [!NOTE]\
+>for example：
+msgid "Life Configuration"
+msgstr "Life Configuration"
+translatie it.
+
+```
+pybabel extract -F babel.cfg -o messages.pot .
+pybabel init -i messages.pot -d translations -l en
+```
+run the following command.
+make the .mo file.
+```
+pybabel compile -d translations
+```
+</details>
+
 setting the config.json
 
 ```
