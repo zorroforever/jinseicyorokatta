@@ -1,11 +1,10 @@
 import json
-from util import translations
-from bank.bank import Bank
-from cost.fixed_consume import FixedConsume
+from src.util import translations
+from src.bank.bank import Bank
+from src.cost.fixed_consume import FixedConsume
 import argparse
-import sys
 
-from util.output_collector import OutputCollector
+from src.util.output_collector import OutputCollector
 
 
 def load_config(config_path):
@@ -16,14 +15,17 @@ def load_config(config_path):
 
 def main(config_path):
     config = load_config(config_path)
-    base_year = config['base_year']
-    if config['years'] > 0:
-        target_year = base_year + config['years']
-    else:
-        target_year = config['target_year']
-        config['target_year'] = target_year
-
     language = config['language']
+
+    try:
+        base_year = int(config['base_year'])
+        target_year = int(config['target_year'])
+        years = int(config['years'])
+    except ValueError:
+        print(translations.get_translation('Invalid config file.', language))
+    if years > 0:
+        target_year = base_year + years
+        config['target_year'] = target_year
     print(translations.get_translation('start_message', language))
     # init bank account
     my_bank = Bank(config)
@@ -42,7 +44,7 @@ def main(config_path):
         print(consume.get_no_str())
         # withdraw the fixed consume from bank
         my_bank.withdraw(consume.c_total_consume_yearly)
-        # if balance is -99, it means My life is over!
+        # if balance is none, it means My life is over!
         if my_bank.balance is None:
             print(translations.get_translation('life_over', language))
             print('<==')
@@ -53,7 +55,6 @@ def main(config_path):
     print(translations.get_translation('end_message', language))
     output_collector.restore_stdout()
     output_collector.output_to_file()
-
 
 
 if __name__ == '__main__':

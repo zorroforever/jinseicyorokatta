@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from bank.money import Money
-from util.translations import get_translation
+from src.bank.money import Money
+from src.util.translations import get_translation
 
 
 class Bank:
@@ -10,8 +10,8 @@ class Bank:
     currency = 'CNY'
 
     def __init__(self, config):
-        self.bank_rate = config['bank_rate']
-        self.balance = Money(config['initial_balance'], config['currency'], config["mark"])
+        self.bank_rate = float(config['bank_rate'])
+        self.balance = Money(float(config['initial_balance']), config['currency'], config["mark"])
         self.language = config['language']
         self.currency = config['currency']
 

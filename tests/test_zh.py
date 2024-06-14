@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-from util.output_collector import OutputCollector
+from src.util.output_collector import OutputCollector
 
 
 class TestLifeZH:

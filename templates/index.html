@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Life Config') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Life Configuration') }}</h1>
+<pre>{{ config | tojson(indent=4) }}</pre>
+<a href="{{ url_for('edit') }}">{{ _('Edit Configuration') }}</a>
+{% endblock %}

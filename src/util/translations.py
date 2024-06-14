@@ -11,6 +11,11 @@ translations = {
         'zh': "人生,易如翻掌！　继续前进！",
         'ja': "人生、チョロかった！　続けろ！"
     },
+    'Invalid config file.': {
+        'en': "Invalid config file.",
+        'zh': "无效的配置文件。",
+        'ja': "無効な設定ファイルです。"
+    },
     'life_over': {
         'en': "My life is over!",
         'zh': "我的人生结束了！",
