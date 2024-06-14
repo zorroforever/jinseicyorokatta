@@ -36,6 +36,37 @@ apt-get install python
 
 ## 安装
 
+json文件可以在web上编辑。
+执行以下命令。
+```
+python flask_app.py
+```
+接着打开浏览器，访问以下网址。
+```
+http://localhost:5000/
+```
+<details>
+<summary>Web界面翻译</summary>
+执行以下命令，
+生成.po文件。
+
+> [!NOTE]\
+>例：
+msgid "Life Configuration"
+msgstr "人生设置"
+翻译一下。
+
+```
+pybabel extract -F babel.cfg -o messages.pot .
+pybabel init -i messages.pot -d translations -l zh
+```
+执行以下命令，
+生成.mo文件。
+```
+pybabel compile -d translations
+```
+</details>
+
 配置config.json
 
 ```

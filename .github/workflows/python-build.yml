@@ -22,7 +22,7 @@ jobs:
       run: pip install pyinstaller
 
     - name: Build executable
-      run: pyinstaller --onefile life.py
+      run: pyinstaller --onefile src/life.py
 
     - name: List files in dist directory
       run: ls -l dist

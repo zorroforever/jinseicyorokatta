@@ -37,6 +37,38 @@ apt-get install python
 
 ## インストール
 
+webでconfig.jsonの設定することになる。
+以下のコマンドで実行します。
+```
+python flask_app.py
+```
+それて、ブラウザで以下のURLにアクセスします。
+
+```
+http://localhost:5000/
+```
+<details>
+<summary>Webサイトの言語設定</summary>
+以下のコマンドで実行します。
+poファイルを作成する。
+
+> [!NOTE]\
+>例：
+msgid "Life Configuration"
+msgstr "ライフ設定"
+通訳する。
+
+```
+pybabel extract -F babel.cfg -o messages.pot .
+pybabel init -i messages.pot -d translations -l ja
+```
+以下のコマンドで実行します。
+moファイルを作成する。
+```
+pybabel compile -d translations
+```
+</details>
+
 config.jsonの設定
 
 ```
