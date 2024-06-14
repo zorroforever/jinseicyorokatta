@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Life Config{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+            <li><a href="{{ url_for('edit') }}">{{ _('Edit Config') }}</a></li>
+            <li><a href="{{ url_for('run_life') }}">{{ _('Run Life') }}</a></li>
+        </ul>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

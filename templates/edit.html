@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Edit Config') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Edit Configuration') }}</h1>
+<form method="POST" action="{{ url_for('edit') }}">
+    {% macro render_input(key, value, prefix="") %}
+        {% if value is mapping %}
+            <fieldset id="{{ prefix + key }}">
+                <legend>{{ key }}</legend>
+                {% for subkey, subvalue in value.items() %}
+                    {{ render_input(subkey, subvalue, prefix + key + ".") }}
+                {% endfor %}
+                <button type="button" class="add-entry" data-prefix="{{ prefix + key }}">{{ _('Add Entry') }}</button>
+            </fieldset>
+        {% else %}
+            <div>
+                <label for="{{ prefix + key }}">{{ key }}</label>
+                <input type="text" id="{{ prefix + key }}" name="{{ prefix + key }}" value="{{ value }}">
+                <button type="button" class="delete-entry" data-key="{{ prefix + key }}">{{ _('Delete') }}</button>
+            </div>
+        {% endif %}
+    {% endmacro %}
+
+    {% for key, value in config.items() %}
+        {{ render_input(key, value) }}
+    {% endfor %}
+
+
+    <button type="submit">{{ _('Save') }}</button>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Add entry button click handler
+    document.querySelectorAll(".add-entry").forEach(button => {
+        button.addEventListener("click", function() {
+            const prefix = this.dataset.prefix;
+            const fieldset = document.getElementById(prefix);
+            const newKey = prompt("Enter new key:");
+            if (newKey) {
+                const newInput = document.createElement("div");
+                newInput.innerHTML = `
+                    <label for="${prefix + "." + newKey}">${newKey}</label>
+                    <input type="text" id="${prefix + "." + newKey}" name="${prefix + "." + newKey}" value="">
+                    <button type="button" class="delete-entry" data-key="${prefix + "." + newKey}">{{ _('Delete') }}</button>
+                `;
+                fieldset.insertBefore(newInput, this);
+            }
+        });
+    });
+
+    // Delete entry button click handler
+    document.addEventListener("click", function(event) {
+        if (event.target.classList.contains("delete-entry")) {
+            const key = event.target.dataset.key;
+            const element = document.querySelector(`[name='${key}']`).parentElement;
+            element.remove();
+        }
+    });
+});
+</script>
+{% endblock %}

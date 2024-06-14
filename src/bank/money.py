@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from util.translations import get_translation
+from src.util.translations import get_translation
 
 
 class Money:

@@ -1,6 +1,6 @@
 import sys
 
-from util.translations import get_translation
+from src.util.translations import get_translation
 
 
 class OutputCollector:
