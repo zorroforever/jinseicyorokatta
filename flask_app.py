@@ -4,6 +4,7 @@ import json
 import os
 
 from src.life import main
+
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
@@ -75,6 +76,7 @@ def unflatten_dict(d):
         d[keys[-1]] = v[0]  # assume only one value per key
     return result_dict
 
+
 def parse_nested_form(form):
     config = {}
     for key, value in form.items():
@@ -87,25 +89,19 @@ def parse_nested_form(form):
         current[parts[-1]] = value[0]
     return config
 
+
 # run life
-@app.route('/run', methods=['GET','POST'])
+@app.route('/run', methods=['GET', 'POST'])
 def run_life():
     config_path = 'src/config/config.json'
-    # script_dir = os.path.dirname(os.path.abspath(__file__))
     main(config_path)
-    # output_path =  os.path.join(script_dir ,load_config()['output_file_path'])
-
-    # output_path = 'results/output.txt'
-    # result = subprocess.run(['python', 'life.py', config_path], capture_output=True, text=True)
-    # print(result)
-    # with open(output_path, 'w', encoding='utf-8') as file:
-    #     file.write(result.stdout)
     return redirect(url_for('download_file'))
+
 
 # download output file
 @app.route('/download')
 def download_file():
-    # directory = 'results'
+
     filename = load_config()['output_file_path']
     directory = os.path.dirname(os.path.abspath(__file__))
     return send_from_directory(directory, filename)

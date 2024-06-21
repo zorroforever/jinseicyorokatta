@@ -5,6 +5,7 @@ from src.util.translations import get_translation
 
 class OutputCollector:
     language = "en"
+
     def __init__(self, file_path=None, language="en"):
         self.contents = []
         self.file_path = file_path
@@ -30,7 +31,7 @@ class OutputCollector:
                     f.write(data)
                     f.flush()
             except IOError as e:
-                print(get_translation("output_file_error",self.language).format(self.file_path,e))
+                print(get_translation("output_file_error", self.language).format(self.file_path, e))
 
     def restore_stdout(self):
         sys.stdout = self._original_stdout
